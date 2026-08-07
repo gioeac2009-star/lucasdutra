@@ -97,7 +97,10 @@
         }
 
         .nav-scrolled {
-            box-shadow: 0 1px 20px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            background-color: rgba(255, 255, 255, 0.85) !important;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
         }
 
         .hero-fixed-image {
@@ -416,7 +419,8 @@
 
 <body data-template-id="__page-root" class="w-full" style="background: rgb(255, 255, 255);"><!-- Navigation -->
     <nav id="main-nav"
-        class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white border-b border-stone-100">
+        class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/80 backdrop-blur-md border-b border-stone-200/50 shadow-sm"
+        style="backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);">
         <div class="max-w-[1320px] mx-auto px-8 py-5 flex items-center justify-between"><a href="#"
                 class="flex-shrink-0"><img data-template-id="nav-logo-img" class="canva-image h-16 w-auto"
                     loading="lazy" alt="Logo - Dr. Lucas Dutra - Nutricionista Clínico e Materno-Infantil"
