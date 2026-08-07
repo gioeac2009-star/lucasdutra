@@ -73,51 +73,68 @@
 <body class="w-full bg-cream text-dark antialiased">
 
     <!-- Navigation -->
-    <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white border-b border-stone-100 shadow-sm">
+    <nav id="main-nav"
+        class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white border-b border-stone-100 shadow-sm">
         <div class="max-w-[1320px] mx-auto px-8 py-5 flex items-center justify-between">
             <a href="index.html" class="flex-shrink-0">
-                <img class="canva-image h-16 w-auto" loading="lazy" alt="Logo - Dr. Lucas Dutra - Nutricionista Clínico e Materno-Infantil" src="assets/images/logo.png">
+                <img class="canva-image h-16 w-auto" loading="lazy"
+                    alt="Logo - Dr. Lucas Dutra - Nutricionista Clínico e Materno-Infantil"
+                    src="assets/images/logo.png">
             </a>
 
             <div class="flex items-center gap-4">
-                <a href="index.html#locais" class="canva-button hidden sm:inline-block px-6 py-2.5 text-sm font-semibold rounded-sm transition-all hover:opacity-90 pulse-cta" style="background: rgb(111, 98, 84); color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 13px;">
+                <a href="index.html#locais"
+                    class="canva-button hidden sm:inline-block px-6 py-2.5 text-sm font-semibold rounded-sm transition-all hover:opacity-90 pulse-cta"
+                    style="background: rgb(111, 98, 84); color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 13px;">
                     Agende sua consulta
                 </a>
 
                 <!-- Container do Menu Hamburguer -->
                 <div class="relative">
-                    <button id="mobile-menu-btn" class="p-2.5 rounded-sm border border-stone-200 hover:bg-stone-50 hover:border-gold transition-all text-dark flex items-center justify-center gap-2 font-medium text-sm" aria-label="Menu">
+                    <button id="mobile-menu-btn"
+                        class="p-2.5 rounded-sm border border-stone-200 hover:bg-stone-50 hover:border-gold transition-all text-dark flex items-center justify-center gap-2 font-medium text-sm"
+                        aria-label="Menu">
                         <i data-lucide="menu" class="w-5 h-5 text-gold"></i>
                         <span class="hidden md:inline text-xs font-semibold uppercase tracking-wider">Menu</span>
                     </button>
 
                     <!-- Dropdown elegante -->
-                    <div id="mobile-menu" class="absolute right-0 top-full mt-3 w-64 bg-white rounded-lg shadow-xl border border-stone-100 py-3 hidden flex-col z-[60] transition-all duration-200">
-                        <a href="index.html" class="px-5 py-2.5 text-sm font-medium text-gray-700 hover:text-gold hover:bg-stone-50 transition-colors flex items-center gap-3">
+                    <div id="mobile-menu"
+                        class="absolute right-0 top-full mt-3 w-64 bg-white rounded-lg shadow-xl border border-stone-100 py-3 hidden flex-col z-[60] transition-all duration-200">
+                        <a href="index.html"
+                            class="px-5 py-2.5 text-sm font-medium text-gray-700 hover:text-gold hover:bg-stone-50 transition-colors flex items-center gap-3">
                             <i data-lucide="home" class="w-4 h-4 text-gold"></i> Home
                         </a>
-                        <a href="index.html#sobre" class="px-5 py-2.5 text-sm font-medium text-gray-700 hover:text-gold hover:bg-stone-50 transition-colors flex items-center gap-3">
+                        <a href="index.html#sobre"
+                            class="px-5 py-2.5 text-sm font-medium text-gray-700 hover:text-gold hover:bg-stone-50 transition-colors flex items-center gap-3">
                             <i data-lucide="user" class="w-4 h-4 text-gold"></i> Sobre Mim
                         </a>
-                        <a href="index.html#especialidades" class="px-5 py-2.5 text-sm font-medium text-gray-700 hover:text-gold hover:bg-stone-50 transition-colors flex items-center gap-3">
+                        <a href="index.html#especialidades"
+                            class="px-5 py-2.5 text-sm font-medium text-gray-700 hover:text-gold hover:bg-stone-50 transition-colors flex items-center gap-3">
                             <i data-lucide="activity" class="w-4 h-4 text-gold"></i> Serviços
                         </a>
-                        <a href="index.html#metodo" class="px-5 py-2.5 text-sm font-medium text-gray-700 hover:text-gold hover:bg-stone-50 transition-colors flex items-center gap-3">
+                        <a href="index.html#metodo"
+                            class="px-5 py-2.5 text-sm font-medium text-gray-700 hover:text-gold hover:bg-stone-50 transition-colors flex items-center gap-3">
                             <i data-lucide="award" class="w-4 h-4 text-gold"></i> Método Dutra
                         </a>
-                        <a href="metodos-avaliacao.html" class="px-5 py-2.5 text-sm font-medium text-gray-700 hover:text-gold hover:bg-stone-50 transition-colors flex items-center gap-3">
+                        <a href="metodos-avaliacao.html"
+                            class="px-5 py-2.5 text-sm font-medium text-gray-700 hover:text-gold hover:bg-stone-50 transition-colors flex items-center gap-3">
                             <i data-lucide="clipboard-list" class="w-4 h-4 text-gold"></i> Métodos de Avaliação
                         </a>
-                        <a href="index.html#locais" class="px-5 py-2.5 text-sm font-medium text-gray-700 hover:text-gold hover:bg-stone-50 transition-colors flex items-center gap-3">
+                        <a href="index.html#locais"
+                            class="px-5 py-2.5 text-sm font-medium text-gray-700 hover:text-gold hover:bg-stone-50 transition-colors flex items-center gap-3">
                             <i data-lucide="map-pin" class="w-4 h-4 text-gold"></i> Locais
                         </a>
-                        <a href="get.html" class="px-5 py-2.5 text-sm font-medium text-gray-700 hover:text-gold hover:bg-stone-50 transition-colors flex items-center gap-3">
-                            <i data-lucide="calculator" class="w-4 h-4 text-gold"></i> Calculadora GET
+                        <a href="get.html"
+                            class="px-5 py-2.5 text-sm font-medium text-gray-700 hover:text-gold hover:bg-stone-50 transition-colors flex items-center gap-3">
+                            <i data-lucide="calculator" class="w-4 h-4 text-gold"></i> Calculadoras GET
                         </a>
-                        <a href="blog.html" class="px-5 py-2.5 text-sm font-medium text-gold bg-stone-50 flex items-center gap-3 font-semibold">
+                        <a href="blog.html"
+                            class="px-5 py-2.5 text-sm font-medium text-gold bg-stone-50 flex items-center gap-3 font-semibold">
                             <i data-lucide="book-open" class="w-4 h-4 text-gold"></i> Blog
                         </a>
-                        <a href="index.html#contato" class="px-5 py-2.5 text-sm font-medium text-gray-700 hover:text-gold hover:bg-stone-50 transition-colors flex items-center gap-3">
+                        <a href="index.html#contato"
+                            class="px-5 py-2.5 text-sm font-medium text-gray-700 hover:text-gold hover:bg-stone-50 transition-colors flex items-center gap-3">
                             <i data-lucide="mail" class="w-4 h-4 text-gold"></i> Contato
                         </a>
                     </div>
@@ -132,7 +149,8 @@
             <p class="text-sm uppercase tracking-[3px] text-gold font-semibold mb-3">Conteúdo Científico</p>
             <h1 class="font-serif text-4xl lg:text-6xl font-semibold text-[#6F6254] mb-6">Blog Dr. Lucas Dutra</h1>
             <p class="text-base text-muted max-w-3xl mx-auto leading-relaxed">
-                Artigos científicos, análises e orientações práticas sobre Nutrição Clínica Integrativa, Nutrição Materno-Infantil, Programação Metabólica Fetal (DOHaD) e Saúde Intestinal.
+                Artigos científicos, análises e orientações práticas sobre Nutrição Clínica Integrativa, Nutrição
+                Materno-Infantil, Programação Metabólica Fetal (DOHaD) e Saúde Intestinal.
             </p>
         </div>
     </header>
@@ -145,7 +163,9 @@
             <div id="blog-grid" class="grid md:grid-cols-3 gap-8">
 
                 <!-- Artigo 1 -->
-                <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all overflow-hidden border border-stone-100 blog-page-item" data-page="1">
+                <article
+                    class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all overflow-hidden border border-stone-100 blog-page-item"
+                    data-page="1">
                     <div class="aspect-[16/10] overflow-hidden">
                         <img class="w-full h-full object-cover" loading="lazy"
                             src="https://images.pexels.com/photos/3662667/pexels-photo-3662667.jpeg?auto=compress&cs=tinysrgb&w=800"
@@ -153,7 +173,8 @@
                     </div>
                     <div class="p-6">
                         <div class="flex items-center gap-3 mb-3">
-                            <span class="text-xs uppercase tracking-wider text-gold font-medium">Nutrição Materno-Infantil</span>
+                            <span class="text-xs uppercase tracking-wider text-gold font-medium">Nutrição
+                                Materno-Infantil</span>
                             <span class="text-gray-300">|</span>
                             <span class="text-xs text-muted">10 min de leitura</span>
                         </div>
@@ -161,16 +182,21 @@
                             Introdução alimentar: os primeiros passos para construir uma relação saudável com a comida
                         </h3>
                         <p class="text-sm text-gray-600 leading-relaxed mb-4">
-                            A alimentação do bebê começa muito antes da primeira colherada. Entenda como apoiar seu bebê nessa fase de grandes descobertas.
+                            A alimentação do bebê começa muito antes da primeira colherada. Entenda como apoiar seu bebê
+                            nessa fase de grandes descobertas.
                         </p>
-                        <button class="blog-read-btn text-sm font-semibold text-gold hover:text-emerald transition-colors" data-article="1">
+                        <button
+                            class="blog-read-btn text-sm font-semibold text-gold hover:text-emerald transition-colors"
+                            data-article="1">
                             Ler artigo completo →
                         </button>
                     </div>
                 </article>
 
                 <!-- Artigo 2 -->
-                <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all overflow-hidden border border-stone-100 blog-page-item" data-page="1">
+                <article
+                    class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all overflow-hidden border border-stone-100 blog-page-item"
+                    data-page="1">
                     <div class="aspect-[16/10] overflow-hidden">
                         <img class="w-full h-full object-cover" loading="lazy"
                             src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800"
@@ -178,7 +204,8 @@
                     </div>
                     <div class="p-6">
                         <div class="flex items-center gap-3 mb-3">
-                            <span class="text-xs uppercase tracking-wider text-gold font-medium">Nutrição Funcional</span>
+                            <span class="text-xs uppercase tracking-wider text-gold font-medium">Nutrição
+                                Funcional</span>
                             <span class="text-gray-300">|</span>
                             <span class="text-xs text-muted">10 min de leitura</span>
                         </div>
@@ -186,16 +213,21 @@
                             Inflamação crônica: como a alimentação pode ajudar a equilibrar o organismo
                         </h3>
                         <p class="text-sm text-gray-600 leading-relaxed mb-4">
-                            A inflamação crônica de baixo grau é silenciosa e afeta diretamente a saúde metabólica. Descubra estratégias alimentares para combater o desequilíbrio.
+                            A inflamação crônica de baixo grau é silenciosa e afeta diretamente a saúde metabólica.
+                            Descubra estratégias alimentares para combater o desequilíbrio.
                         </p>
-                        <button class="blog-read-btn text-sm font-semibold text-gold hover:text-emerald transition-colors" data-article="2">
+                        <button
+                            class="blog-read-btn text-sm font-semibold text-gold hover:text-emerald transition-colors"
+                            data-article="2">
                             Ler artigo completo →
                         </button>
                     </div>
                 </article>
 
                 <!-- Artigo 3 -->
-                <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all overflow-hidden border border-stone-100 blog-page-item" data-page="1">
+                <article
+                    class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all overflow-hidden border border-stone-100 blog-page-item"
+                    data-page="1">
                     <div class="aspect-[16/10] overflow-hidden">
                         <img class="w-full h-full object-cover" loading="lazy"
                             src="https://images.pexels.com/photos/5714336/pexels-photo-5714336.jpeg?auto=compress&cs=tinysrgb&w=800"
@@ -211,16 +243,21 @@
                             Emagrecimento saudável: por que perder peso não deve ser apenas sobre a balança?
                         </h3>
                         <p class="text-sm text-gray-600 leading-relaxed mb-4">
-                            Entenda por que emagrecer de verdade vai muito além do número na balança, envolvendo a saúde global e a composição corporal.
+                            Entenda por que emagrecer de verdade vai muito além do número na balança, envolvendo a saúde
+                            global e a composição corporal.
                         </p>
-                        <button class="blog-read-btn text-sm font-semibold text-gold hover:text-emerald transition-colors" data-article="3">
+                        <button
+                            class="blog-read-btn text-sm font-semibold text-gold hover:text-emerald transition-colors"
+                            data-article="3">
                             Ler artigo completo →
                         </button>
                     </div>
                 </article>
 
                 <!-- Artigo 4 -->
-                <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all overflow-hidden border border-stone-100 blog-page-item hidden" data-page="2">
+                <article
+                    class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all overflow-hidden border border-stone-100 blog-page-item hidden"
+                    data-page="2">
                     <div class="aspect-[16/10] overflow-hidden">
                         <img class="w-full h-full object-cover" loading="lazy"
                             src="https://images.pexels.com/photos/6551415/pexels-photo-6551415.jpeg?auto=compress&cs=tinysrgb&w=800"
@@ -236,16 +273,21 @@
                             Emagrecimento saudável: por que perder peso não deve ser apenas sobre a balança? (Parte II)
                         </h3>
                         <p class="text-sm text-gray-600 leading-relaxed mb-4">
-                            Entenda por que perder peso de verdade vai muito além da balança, priorizando a saúde metabólica e a massa muscular.
+                            Entenda por que perder peso de verdade vai muito além da balança, priorizando a saúde
+                            metabólica e a massa muscular.
                         </p>
-                        <button class="blog-read-btn text-sm font-semibold text-gold hover:text-emerald transition-colors" data-article="4">
+                        <button
+                            class="blog-read-btn text-sm font-semibold text-gold hover:text-emerald transition-colors"
+                            data-article="4">
                             Ler artigo completo →
                         </button>
                     </div>
                 </article>
 
                 <!-- Artigo 5 -->
-                <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all overflow-hidden border border-stone-100 blog-page-item hidden" data-page="2">
+                <article
+                    class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all overflow-hidden border border-stone-100 blog-page-item hidden"
+                    data-page="2">
                     <div class="aspect-[16/10] overflow-hidden">
                         <img class="w-full h-full object-cover" loading="lazy"
                             src="https://images.pexels.com/photos/30637886/pexels-photo-30637886.jpeg?auto=compress&cs=tinysrgb&w=800"
@@ -261,16 +303,21 @@
                             Saúde intestinal: como a microbiota influencia o metabolismo, a imunidade e o bem-estar
                         </h3>
                         <p class="text-sm text-gray-600 leading-relaxed mb-4">
-                            Descubra como trilhões de microrganismos influenciam sua imunidade, inflamação corporal e equilíbrio metabólico geral.
+                            Descubra como trilhões de microrganismos influenciam sua imunidade, inflamação corporal e
+                            equilíbrio metabólico geral.
                         </p>
-                        <button class="blog-read-btn text-sm font-semibold text-gold hover:text-emerald transition-colors" data-article="5">
+                        <button
+                            class="blog-read-btn text-sm font-semibold text-gold hover:text-emerald transition-colors"
+                            data-article="5">
                             Ler artigo completo →
                         </button>
                     </div>
                 </article>
 
                 <!-- Artigo 6 -->
-                <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all overflow-hidden border border-stone-100 blog-page-item hidden" data-page="2">
+                <article
+                    class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all overflow-hidden border border-stone-100 blog-page-item hidden"
+                    data-page="2">
                     <div class="aspect-[16/10] overflow-hidden">
                         <img class="w-full h-full object-cover" loading="lazy"
                             src="https://images.pexels.com/photos/7485093/pexels-photo-7485093.jpeg?auto=compress&cs=tinysrgb&w=800"
@@ -278,7 +325,8 @@
                     </div>
                     <div class="p-6">
                         <div class="flex items-center gap-3 mb-3">
-                            <span class="text-xs uppercase tracking-wider text-gold font-medium">DOHaD / Gestantes</span>
+                            <span class="text-xs uppercase tracking-wider text-gold font-medium">DOHaD /
+                                Gestantes</span>
                             <span class="text-gray-300">|</span>
                             <span class="text-xs text-muted">10 min de leitura</span>
                         </div>
@@ -286,16 +334,21 @@
                             Diabetes gestacional: como a alimentação pode proteger a mãe e o bebê
                         </h3>
                         <p class="text-sm text-gray-600 leading-relaxed mb-4">
-                            Entenda como regular os níveis de glicemia e garantir o desenvolvimento fetal equilibrado durante a gravidez.
+                            Entenda como regular os níveis de glicemia e garantir o desenvolvimento fetal equilibrado
+                            durante a gravidez.
                         </p>
-                        <button class="blog-read-btn text-sm font-semibold text-gold hover:text-emerald transition-colors" data-article="6">
+                        <button
+                            class="blog-read-btn text-sm font-semibold text-gold hover:text-emerald transition-colors"
+                            data-article="6">
                             Ler artigo completo →
                         </button>
                     </div>
                 </article>
 
                 <!-- Artigo 7 -->
-                <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all overflow-hidden border border-stone-100 blog-page-item hidden" data-page="3">
+                <article
+                    class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all overflow-hidden border border-stone-100 blog-page-item hidden"
+                    data-page="3">
                     <div class="aspect-[16/10] overflow-hidden">
                         <img class="w-full h-full object-cover" loading="lazy"
                             src="https://images.pexels.com/photos/7484672/pexels-photo-7484672.jpeg?auto=compress&cs=tinysrgb&w=800"
@@ -303,7 +356,8 @@
                     </div>
                     <div class="p-6">
                         <div class="flex items-center gap-3 mb-3">
-                            <span class="text-xs uppercase tracking-wider text-gold font-medium">Programação Fetal (DOHaD)</span>
+                            <span class="text-xs uppercase tracking-wider text-gold font-medium">Programação Fetal
+                                (DOHaD)</span>
                             <span class="text-gray-300">|</span>
                             <span class="text-xs text-muted">12 min de leitura</span>
                         </div>
@@ -311,16 +365,21 @@
                             A alimentação na gestação pode programar a saúde do bebê para toda a vida?
                         </h3>
                         <p class="text-sm text-gray-600 leading-relaxed mb-4">
-                            Entenda o conceito revolucionário de Programação Metabólica Fetal (DOHaD) e como ele influencia a saúde do bebê.
+                            Entenda o conceito revolucionário de Programação Metabólica Fetal (DOHaD) e como ele
+                            influencia a saúde do bebê.
                         </p>
-                        <button class="blog-read-btn text-sm font-semibold text-gold hover:text-emerald transition-colors" data-article="7">
+                        <button
+                            class="blog-read-btn text-sm font-semibold text-gold hover:text-emerald transition-colors"
+                            data-article="7">
                             Ler artigo completo →
                         </button>
                     </div>
                 </article>
 
                 <!-- Artigo 8 -->
-                <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all overflow-hidden border border-stone-100 blog-page-item hidden" data-page="3">
+                <article
+                    class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all overflow-hidden border border-stone-100 blog-page-item hidden"
+                    data-page="3">
                     <div class="aspect-[16/10] overflow-hidden">
                         <img class="w-full h-full object-cover" loading="lazy"
                             src="https://images.pexels.com/photos/6991894/pexels-photo-6991894.jpeg?auto=compress&cs=tinysrgb&w=800"
@@ -328,7 +387,8 @@
                     </div>
                     <div class="p-6">
                         <div class="flex items-center gap-3 mb-3">
-                            <span class="text-xs uppercase tracking-wider text-gold font-medium">Revisão Científica</span>
+                            <span class="text-xs uppercase tracking-wider text-gold font-medium">Revisão
+                                Científica</span>
                             <span class="text-gray-300">|</span>
                             <span class="text-xs text-muted">12 min de leitura</span>
                         </div>
@@ -336,9 +396,12 @@
                             A influência da alimentação materna na formação do paladar fetal e aceitação pós-natal
                         </h3>
                         <p class="text-sm text-gray-600 leading-relaxed mb-4">
-                            Entenda como os sabores da alimentação gestacional moldam as primeiras experiências sensoriais e preferências do bebê.
+                            Entenda como os sabores da alimentação gestacional moldam as primeiras experiências
+                            sensoriais e preferências do bebê.
                         </p>
-                        <button class="blog-read-btn text-sm font-semibold text-gold hover:text-emerald transition-colors" data-article="8">
+                        <button
+                            class="blog-read-btn text-sm font-semibold text-gold hover:text-emerald transition-colors"
+                            data-article="8">
                             Ler artigo completo →
                         </button>
                     </div>
@@ -348,16 +411,23 @@
 
             <!-- Paginação -->
             <div class="flex justify-center gap-2 mt-12">
-                <button class="blog-page-btn px-4 py-2 rounded-sm border border-gold bg-gold text-white font-semibold text-sm transition-all" data-page="1">1</button>
-                <button class="blog-page-btn px-4 py-2 rounded-sm border border-gold text-gold font-semibold text-sm transition-all hover:bg-gold hover:text-white" data-page="2">2</button>
-                <button class="blog-page-btn px-4 py-2 rounded-sm border border-gold text-gold font-semibold text-sm transition-all hover:bg-gold hover:text-white" data-page="3">3</button>
+                <button
+                    class="blog-page-btn px-4 py-2 rounded-sm border border-gold bg-gold text-white font-semibold text-sm transition-all"
+                    data-page="1">1</button>
+                <button
+                    class="blog-page-btn px-4 py-2 rounded-sm border border-gold text-gold font-semibold text-sm transition-all hover:bg-gold hover:text-white"
+                    data-page="2">2</button>
+                <button
+                    class="blog-page-btn px-4 py-2 rounded-sm border border-gold text-gold font-semibold text-sm transition-all hover:bg-gold hover:text-white"
+                    data-page="3">3</button>
             </div>
 
             <!-- Leitor do Artigo Completo -->
             <div id="article-detail" class="blog-article-view mt-12">
                 <div class="reading-progress" id="reading-progress"></div>
                 <div class="max-w-3xl mx-auto bg-white p-8 sm:p-12 rounded-lg shadow-md border border-stone-100">
-                    <button id="article-back" class="flex items-center gap-2 text-sm font-semibold text-gold hover:text-emerald mb-8 transition-colors">
+                    <button id="article-back"
+                        class="flex items-center gap-2 text-sm font-semibold text-gold hover:text-emerald mb-8 transition-colors">
                         <i data-lucide="arrow-left" class="w-4 h-4"></i> Voltar ao Blog
                     </button>
                     <div id="article-content" class="prose max-w-none text-gray-700"></div>
@@ -369,25 +439,31 @@
 
     <!-- Footer -->
     <footer class="canva-footer w-full bg-white border-t border-[#d2d2d7] pt-5 pb-6">
-        <div class="max-w-[1200px] mx-auto px-8 flex flex-col gap-2.5 text-xs text-[#6E6E73] font-normal leading-relaxed text-left">
+        <div
+            class="max-w-[1200px] mx-auto px-8 flex flex-col gap-2.5 text-xs text-[#6E6E73] font-normal leading-relaxed text-left">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
-                <p class="canva-text" style="color: rgb(110, 110, 115); font-weight: 400; font-style: normal; font-size: 12px;">
+                <p class="canva-text"
+                    style="color: rgb(110, 110, 115); font-weight: 400; font-style: normal; font-size: 12px;">
                     Copyright © 2026 Lucas Dutra. Todos os direitos reservados.
                 </p>
             </div>
             <div class="flex flex-wrap items-center gap-x-2.5 gap-y-1.5 text-[#6E6E73]">
-                <span class="canva-text" style="color: rgb(110, 110, 115); font-weight: 400; font-style: normal; font-size: 12px;">CRN-6 00000</span>
+                <span class="canva-text"
+                    style="color: rgb(110, 110, 115); font-weight: 400; font-style: normal; font-size: 12px;">CRN-6
+                    00000</span>
                 <span class="text-[#d2d2d7]">•</span>
                 <a href="index.html" class="hover:text-[#1D1D1F] hover:underline transition-colors">Página Inicial</a>
                 <span class="text-[#d2d2d7]">•</span>
-                <a href="metodos-avaliacao.html" class="hover:text-[#1D1D1F] hover:underline transition-colors">Métodos de Avaliação</a>
+                <a href="metodos-avaliacao.html" class="hover:text-[#1D1D1F] hover:underline transition-colors">Métodos
+                    de Avaliação</a>
                 <span class="text-[#d2d2d7]">•</span>
                 <a href="get.html" class="hover:text-[#1D1D1F] hover:underline transition-colors">Calculadora GET</a>
                 <span class="text-[#d2d2d7]">•</span>
                 <a href="index.html#contato" class="hover:text-[#1D1D1F] hover:underline transition-colors">Contato</a>
             </div>
             <div class="pt-1.5 text-[#6E6E73]">
-                <p class="canva-text" style="color: rgb(110, 110, 115); font-weight: 400; font-style: normal; font-size: 12px;">Brasil</p>
+                <p class="canva-text"
+                    style="color: rgb(110, 110, 115); font-weight: 400; font-style: normal; font-size: 12px;">Brasil</p>
             </div>
         </div>
     </footer>
