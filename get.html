@@ -432,10 +432,14 @@
                     </button>
                     <!-- Template Invisível para o PDF -->
                     <div id="pdf-template" class="hidden">
-                        <div style="padding: 40px; font-family: 'Montserrat', sans-serif; color: #222;">
-                            <h1
-                                style="font-family: 'Cormorant Garamond', serif; color: #6F6254; font-size: 32px; border-bottom: 2px solid #D4AF37; padding-bottom: 10px; margin-bottom: 30px;">
-                                Relatório de Gasto Energético Total (GET)</h1>
+                        <div style="box-sizing: border-box; width: 100%; padding: 40px; font-family: 'Montserrat', sans-serif; color: #222; background-color: #ffffff;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #D4AF37; padding-bottom: 15px; margin-bottom: 25px;">
+                                <div>
+                                    <h1 style="font-family: 'Cormorant Garamond', serif; color: #6F6254; font-size: 26px; font-weight: 700; margin: 0;">Relatório de Gasto Energético Total (GET)</h1>
+                                    <p style="color: #666666; font-size: 13px; margin: 4px 0 0 0;">Dr. Lucas Dutra • Nutricionista Clínico e Materno-Infantil</p>
+                                </div>
+                                <img src="assets/images/logo.png" style="height: 48px; width: auto;" alt="Dr. Lucas Dutra">
+                            </div>
 
                             <div
                                 style="margin-bottom: 30px; background-color: #F7F5F2; padding: 20px; border-radius: 8px;">
@@ -608,52 +612,102 @@
                             document.getElementById('pdf-container').classList.remove('hidden'); // Exibe o botão de PDF
 
                             const resultsArea = document.getElementById('results-area');
-                            resultsArea.classList.remove('opacity-50', 'pointer-events-none');
+                            resultsArea.classList.remove('opacity-85', 'opacity-50', 'pointer-events-none');
                             resultsArea.classList.add('opacity-100');
                         });
 
                         // Geração do PDF
-                        document.getElementById('gerar-pdf').addEventListener('click', function () {
-                            // Preencher dados do template do PDF
-                            const nome = document.getElementById('nome').value.trim() || 'Não Informado';
-                            document.getElementById('pdf-nome').textContent = nome;
-                            document.getElementById('pdf-sexo').textContent = document.getElementById('sexo').value;
-                            document.getElementById('pdf-idade').textContent = document.getElementById('idade').value;
-                            document.getElementById('pdf-peso').textContent = document.getElementById('peso').value;
-                            document.getElementById('pdf-altura').textContent = document.getElementById('altura').value;
+                        document.getElementById('gerar-pdf').addEventListener('click', async function () {
+                            const btn = this;
+                            const btnContent = btn.innerHTML;
 
-                            const atividadeSelect = document.getElementById('atividade');
-                            document.getElementById('pdf-atividade').textContent = atividadeSelect.options[atividadeSelect.selectedIndex].text;
+                            try {
+                                // Desabilitar o botão e mostrar feedback de carregamento
+                                btn.disabled = true;
+                                btn.classList.add('opacity-75', 'cursor-not-allowed');
+                                btn.innerHTML = `<svg class="animate-spin h-5 w-5 text-white inline-block mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Gerando PDF...`;
 
-                            // Preencher resultados do template do PDF
-                            document.getElementById('pdf-msj-tmb-val').textContent = document.getElementById('msj-tmb').textContent;
-                            document.getElementById('pdf-msj-get-val').textContent = document.getElementById('msj-get').textContent;
-                            document.getElementById('pdf-msj-eta-val').textContent = document.getElementById('msj-get-eta').textContent;
+                                // Preencher dados no template do PDF
+                                const nome = document.getElementById('nome').value.trim() || 'Não Informado';
+                                document.getElementById('pdf-nome').textContent = nome;
+                                document.getElementById('pdf-sexo').textContent = document.getElementById('sexo').value;
+                                document.getElementById('pdf-idade').textContent = document.getElementById('idade').value;
+                                document.getElementById('pdf-peso').textContent = document.getElementById('peso').value;
+                                document.getElementById('pdf-altura').textContent = document.getElementById('altura').value;
 
-                            document.getElementById('pdf-hb-tmb-val').textContent = document.getElementById('hb-tmb').textContent;
-                            document.getElementById('pdf-hb-get-val').textContent = document.getElementById('hb-get').textContent;
-                            document.getElementById('pdf-hb-eta-val').textContent = document.getElementById('hb-get-eta').textContent;
+                                const atividadeSelect = document.getElementById('atividade');
+                                document.getElementById('pdf-atividade').textContent = atividadeSelect.options[atividadeSelect.selectedIndex].text;
 
-                            document.getElementById('pdf-tinsley-tmb-val').textContent = document.getElementById('tinsley-tmb').textContent;
-                            document.getElementById('pdf-tinsley-get-val').textContent = document.getElementById('tinsley-get').textContent;
-                            document.getElementById('pdf-tinsley-eta-val').textContent = document.getElementById('tinsley-get-eta').textContent;
+                                // Preencher resultados no template do PDF
+                                document.getElementById('pdf-msj-tmb-val').textContent = document.getElementById('msj-tmb').textContent;
+                                document.getElementById('pdf-msj-get-val').textContent = document.getElementById('msj-get').textContent;
+                                document.getElementById('pdf-msj-eta-val').textContent = document.getElementById('msj-get-eta').textContent;
 
-                            // Clonar o template invisível e exibi-lo num elemento isolado
-                            const element = document.getElementById('pdf-template').cloneNode(true);
-                            element.classList.remove('hidden');
-                            element.style.display = 'block';
+                                document.getElementById('pdf-hb-tmb-val').textContent = document.getElementById('hb-tmb').textContent;
+                                document.getElementById('pdf-hb-get-val').textContent = document.getElementById('hb-get').textContent;
+                                document.getElementById('pdf-hb-eta-val').textContent = document.getElementById('hb-get-eta').textContent;
 
-                            // Configuração do PDF
-                            const opt = {
-                                margin: 0,
-                                filename: `Relatorio_GET_${nome.replace(/\s+/g, '_')}.pdf`,
-                                image: { type: 'jpeg', quality: 0.98 },
-                                html2canvas: { scale: 2 },
-                                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-                            };
+                                document.getElementById('pdf-tinsley-tmb-val').textContent = document.getElementById('tinsley-tmb').textContent;
+                                document.getElementById('pdf-tinsley-get-val').textContent = document.getElementById('tinsley-get').textContent;
+                                document.getElementById('pdf-tinsley-eta-val').textContent = document.getElementById('tinsley-get-eta').textContent;
 
-                            // Gerar o PDF
-                            html2pdf().set(opt).from(element).save();
+                                // Clonar o template invisível e exibi-lo num container temporário no DOM fora da tela
+                                const template = document.getElementById('pdf-template');
+                                const clone = template.cloneNode(true);
+                                clone.id = 'pdf-render-container';
+                                clone.classList.remove('hidden');
+
+                                // Wrapper fixo para renderização consistente independente de dispositivo/resolução
+                                const tempContainer = document.createElement('div');
+                                tempContainer.id = 'pdf-temp-wrapper';
+                                tempContainer.style.position = 'fixed';
+                                tempContainer.style.left = '0';
+                                tempContainer.style.top = '0';
+                                tempContainer.style.width = '794px'; // Largura A4 padrão a 96DPI
+                                tempContainer.style.backgroundColor = '#ffffff';
+                                tempContainer.style.zIndex = '-9999';
+                                tempContainer.style.pointerEvents = 'none';
+                                tempContainer.appendChild(clone);
+                                document.body.appendChild(tempContainer);
+
+                                // Configuração do PDF
+                                const opt = {
+                                    margin: 8,
+                                    filename: `Relatorio_GET_${nome.replace(/\s+/g, '_')}.pdf`,
+                                    image: { type: 'jpeg', quality: 0.98 },
+                                    html2canvas: {
+                                        scale: 2,
+                                        useCORS: true,
+                                        logging: false,
+                                        x: 0,
+                                        y: 0,
+                                        scrollX: 0,
+                                        scrollY: 0,
+                                        windowWidth: 794
+                                    },
+                                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+                                };
+
+                                // Gerar e salvar o PDF
+                                await html2pdf().set(opt).from(clone).save();
+
+                                // Remover container temporário
+                                if (tempContainer && tempContainer.parentNode) {
+                                    tempContainer.parentNode.removeChild(tempContainer);
+                                }
+                            } catch (err) {
+                                console.error('Erro ao gerar PDF:', err);
+                                alert('Ocorreu um erro ao gerar o PDF. Por favor, tente novamente.');
+                            } finally {
+                                // Garantir limpeza e restauração do botão
+                                const tempWrapper = document.getElementById('pdf-temp-wrapper');
+                                if (tempWrapper && tempWrapper.parentNode) {
+                                    tempWrapper.parentNode.removeChild(tempWrapper);
+                                }
+                                btn.disabled = false;
+                                btn.classList.remove('opacity-75', 'cursor-not-allowed');
+                                btn.innerHTML = btnContent;
+                            }
                         });
 
                         lucide.createIcons();
