@@ -56,6 +56,73 @@
             font-family: 'Cormorant Garamond', serif;
         }
 
+        /* High-Performance 60fps Ambient Animated Background */
+        @keyframes floatBlob1 {
+            0% { transform: translate3d(0, 0, 0) scale(1); }
+            50% { transform: translate3d(60px, 45px, 0) scale(1.1); }
+            100% { transform: translate3d(0, 0, 0) scale(1); }
+        }
+
+        @keyframes floatBlob2 {
+            0% { transform: translate3d(0, 0, 0) scale(1); }
+            50% { transform: translate3d(-50px, -40px, 0) scale(1.08); }
+            100% { transform: translate3d(0, 0, 0) scale(1); }
+        }
+
+        @keyframes floatBlob3 {
+            0% { transform: translate3d(0, 0, 0) scale(0.95); }
+            50% { transform: translate3d(-35px, 35px, 0) scale(1.12); }
+            100% { transform: translate3d(0, 0, 0) scale(0.95); }
+        }
+
+        .get-bg-canvas {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            overflow: hidden;
+            background-color: #F8F7F4;
+            pointer-events: none;
+        }
+
+        .blob-1 {
+            position: absolute;
+            top: -15%;
+            left: -15%;
+            width: 65vw;
+            height: 65vw;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.25) 0%, rgba(248, 247, 244, 0) 70%);
+            filter: blur(80px);
+            animation: floatBlob1 18s ease-in-out infinite;
+            will-change: transform;
+        }
+
+        .blob-2 {
+            position: absolute;
+            bottom: -15%;
+            right: -15%;
+            width: 70vw;
+            height: 70vw;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(111, 98, 84, 0.18) 0%, rgba(248, 247, 244, 0) 70%);
+            filter: blur(90px);
+            animation: floatBlob2 22s ease-in-out infinite;
+            will-change: transform;
+        }
+
+        .blob-3 {
+            position: absolute;
+            top: 35%;
+            left: 25%;
+            width: 50vw;
+            height: 50vw;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.16) 0%, rgba(248, 247, 244, 0) 70%);
+            filter: blur(75px);
+            animation: floatBlob3 16s ease-in-out infinite;
+            will-change: transform;
+        }
+
         /* Custom styles for range slider to match elegant theme */
         input[type="range"] {
             -webkit-appearance: none;
@@ -96,7 +163,14 @@
     </style>
 </head>
 
-<body class="bg-light min-h-screen pt-32 pb-12 px-4 sm:px-6 lg:px-8">
+<body class="bg-light min-h-screen pt-32 pb-12 px-4 sm:px-6 lg:px-8 relative">
+
+    <!-- Ambient Animated Gradient Background (60fps GPU Accelerated) -->
+    <div class="get-bg-canvas">
+        <div class="blob-1"></div>
+        <div class="blob-2"></div>
+        <div class="blob-3"></div>
+    </div>
 
     <!-- Navigation -->
     <nav id="main-nav"
@@ -174,7 +248,7 @@
         <div class="text-center mb-12">
             <h1 class="font-serif text-4xl md:text-5xl font-bold text-dark mb-4">Calculadora de Gasto Energético Total
                 (GET)</h1>
-            <p class="text-muted max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+            <p class="text-[#444444] font-medium max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
                 Esta calculadora utiliza as fórmulas de Mifflin-St Jeor, Harris-Benedict e Tinsley para estimar a Taxa
                 Metabólica Basal (TMB). O resultado é ajustado pelo nível de atividade física e pelo efeito térmico dos
                 alimentos para calcular o Gasto Energético Total (GET) diário.
@@ -248,7 +322,7 @@
             </div>
 
             <!-- Results Section -->
-            <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-6 md:p-8 opacity-50 transition-opacity duration-300 pointer-events-none flex flex-col"
+            <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-6 md:p-8 opacity-85 transition-opacity duration-300 pointer-events-none flex flex-col"
                 id="results-area">
                 <h3 class="font-serif text-2xl font-semibold text-emerald mb-6 border-b border-gray-100 pb-3">Seus
                     Resultados</h3>
