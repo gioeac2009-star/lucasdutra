@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon e Ícones do Site -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon.png">
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+    <link rel="apple-touch-icon" href="assets/images/favicon.png">
+    <title>Métodos de Avaliação - Dr. Lucas Dutra</title>
+    <meta name="description"
+        content="Métodos de avaliação nutricional e composição corporal avançados: Dobras Cutâneas, Circunferências Corporais, Bioimpedância e Ultrassonografia Corporal.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        emerald: '#0B5D54',
+                        gold: '#D4AF37',
+                        cream: '#F7F5F2',
+                        light: '#F8F8F8',
+                        dark: '#222222',
+                        muted: '#666666'
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Cormorant Garamond', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+</head>
+
+<body class="w-full bg-cream text-dark antialiased">
+
+    <!-- Navigation -->
+    <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white border-b border-stone-100 shadow-sm">
+        <div class="max-w-[1320px] mx-auto px-8 py-5 flex items-center justify-between">
+            <a href="index.html" class="flex-shrink-0">
+                <img class="canva-image h-16 w-auto" loading="lazy" alt="Logo - Dr. Lucas Dutra - Nutricionista Clínico e Materno-Infantil" src="assets/images/logo.png">
+            </a>
+
+            <div class="flex items-center gap-4">
+                <a href="index.html#locais" class="canva-button hidden sm:inline-block px-6 py-2.5 text-sm font-semibold rounded-sm transition-all hover:opacity-90 pulse-cta" style="background: rgb(111, 98, 84); color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 13px;">
+                    Agende sua consulta
+                </a>
+
+                <!-- Container do Menu Hamburguer -->
+                <div class="relative">
+                    <button id="mobile-menu-btn" class="p-2.5 rounded-sm border border-stone-200 hover:bg-stone-50 hover:border-gold transition-all text-dark flex items-center justify-center gap-2 font-medium text-sm" aria-label="Menu">
+                        <i data-lucide="menu" class="w-5 h-5 text-gold"></i>
+                        <span class="hidden md:inline text-xs font-semibold uppercase tracking-wider">Menu</span>
+                    </button>
+
+                    <!-- Dropdown elegante -->
+                    <div id="mobile-menu" class="absolute right-0 top-full mt-3 w-64 bg-white rounded-lg shadow-xl border border-stone-100 py-3 hidden flex-col z-[60] transition-all duration-200">
+                        <a href="index.html" class="px-5 py-2.5 text-sm font-medium text-gray-700 hover:text-gold hover:bg-stone-50 transition-colors flex items-center gap-3">
+                            <i data-lucide="home" class="w-4 h-4 text-gold"></i> Home
+                        </a>
+                        <a href="index.html#sobre" class="px-5 py-2.5 text-sm font-medium text-gray-700 hover:text-gold hover:bg-stone-50 transition-colors flex items-center gap-3">
+                            <i data-lucide="user" class="w-4 h-4 text-gold"></i> Sobre Mim
+                        </a>
+                        <a href="index.html#especialidades" class="px-5 py-2.5 text-sm font-medium text-gray-700 hover:text-gold hover:bg-stone-50 transition-colors flex items-center gap-3">
+                            <i data-lucide="activity" class="w-4 h-4 text-gold"></i> Serviços
+                        </a>
+                        <a href="index.html#metodo" class="px-5 py-2.5 text-sm font-medium text-gray-700 hover:text-gold hover:bg-stone-50 transition-colors flex items-center gap-3">
+                            <i data-lucide="award" class="w-4 h-4 text-gold"></i> Método Dutra
+                        </a>
+                        <a href="metodos-avaliacao.html" class="px-5 py-2.5 text-sm font-medium text-gold bg-stone-50 flex items-center gap-3 font-semibold">
+                            <i data-lucide="clipboard-list" class="w-4 h-4 text-gold"></i> Métodos de Avaliação
+                        </a>
+                        <a href="index.html#locais" class="px-5 py-2.5 text-sm font-medium text-gray-700 hover:text-gold hover:bg-stone-50 transition-colors flex items-center gap-3">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-gold"></i> Locais
+                        </a>
+                        <a href="get.html" class="px-5 py-2.5 text-sm font-medium text-gray-700 hover:text-gold hover:bg-stone-50 transition-colors flex items-center gap-3">
+                            <i data-lucide="calculator" class="w-4 h-4 text-gold"></i> Calculadora GET
+                        </a>
+                        <a href="blog.html" class="px-5 py-2.5 text-sm font-medium text-gray-700 hover:text-gold hover:bg-stone-50 transition-colors flex items-center gap-3">
+                            <i data-lucide="book-open" class="w-4 h-4 text-gold"></i> Blog
+                        </a>
+                        <a href="index.html#contato" class="px-5 py-2.5 text-sm font-medium text-gray-700 hover:text-gold hover:bg-stone-50 transition-colors flex items-center gap-3">
+                            <i data-lucide="mail" class="w-4 h-4 text-gold"></i> Contato
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header da Página -->
+    <header class="pt-36 pb-16 bg-white border-b border-stone-100">
+        <div class="max-w-[1320px] mx-auto px-8 text-center">
+            <p class="text-sm uppercase tracking-[3px] text-gold font-semibold mb-3">Tecnologia e Precisão</p>
+            <h1 class="font-serif text-4xl lg:text-6xl font-semibold text-[#6F6254] mb-6">Métodos de Avaliação Nutricional</h1>
+            <p class="text-base text-muted max-w-3xl mx-auto leading-relaxed">
+                Utilizo diferentes métodos avançados de avaliação de composição corporal para um diagnóstico nutricional preciso e diferenciado, visando um plano verdadeiramente individualizado.
+            </p>
+        </div>
+    </header>
+
+    <!-- Seção Principal de Métodos -->
+    <main class="py-20">
+        <div class="max-w-[1320px] mx-auto px-8">
+            <div class="grid md:grid-cols-2 gap-10">
+
+                <!-- Card 1: Dobras Cutâneas -->
+                <div class="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-stone-100">
+                    <div class="aspect-[16/10] overflow-hidden">
+                        <img class="w-full h-full object-cover" loading="lazy"
+                            src="https://images.pexels.com/photos/7558818/pexels-photo-7558818.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            alt="Medição de dobras cutâneas com adipômetro em ambiente clínico">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-serif text-2xl font-semibold mb-3 text-[#6F6254]">
+                            Dobras Cutâneas (Adipômetro)
+                        </h3>
+                        <p class="text-sm leading-relaxed mb-6 text-gray-600">
+                            Método clássico e acessível para estimar a gordura corporal através da medição de pregas cutâneas em pontos anatômicos específicos com um adipômetro calibrado.
+                        </p>
+                        <p class="text-xs uppercase tracking-[2px] font-semibold mb-4 text-gold">
+                            O que avalia:
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-gold"></i>
+                                <span class="text-sm text-dark font-medium">Percentual de Gordura Corporal</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-gold"></i>
+                                <span class="text-sm text-dark font-medium">Distribuição da Gordura Subcutânea</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-gold"></i>
+                                <span class="text-sm text-dark font-medium">Acompanhamento da Evolução Corporal</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Circunferências Corporais -->
+                <div class="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-stone-100">
+                    <div class="aspect-[16/10] overflow-hidden">
+                        <img class="w-full h-full object-cover" loading="lazy"
+                            src="https://images.pexels.com/photos/15319043/pexels-photo-15319043.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            alt="Nutricionista medindo circunferência da cintura de paciente">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-serif text-2xl font-semibold mb-3 text-[#6F6254]">
+                            Circunferências Corporais
+                        </h3>
+                        <p class="text-sm leading-relaxed mb-6 text-gray-600">
+                            Medição de perímetros corporais com fita antropométrica para avaliar proporções, risco metabólico e acompanhar mudanças na composição corporal ao longo do tratamento.
+                        </p>
+                        <p class="text-xs uppercase tracking-[2px] font-semibold mb-4 text-gold">
+                            O que avalia:
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-gold"></i>
+                                <span class="text-sm text-dark font-medium">Risco Cardiovascular (Cintura/Quadril)</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-gold"></i>
+                                <span class="text-sm text-dark font-medium">Proporções Corporais</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-gold"></i>
+                                <span class="text-sm text-dark font-medium">Evolução de Medidas Regionais</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Bioimpedância -->
+                <div class="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-stone-100">
+                    <div class="aspect-[16/10] overflow-hidden">
+                        <img class="w-full h-full object-cover" loading="lazy"
+                            src="assets/images/bia.jpeg"
+                            alt="Profissional usando dispositivo de bioimpedância em paciente para análise de composição corporal">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-serif text-2xl font-semibold mb-3 text-[#6F6254]">
+                            Bioimpedância (BIA)
+                        </h3>
+                        <p class="text-sm leading-relaxed mb-6 text-gray-600">
+                            Análise de composição corporal por meio de corrente elétrica de baixa intensidade, estimando massa magra, gordura corporal e água corporal total de forma rápida e não invasiva.
+                        </p>
+                        <p class="text-xs uppercase tracking-[2px] font-semibold mb-4 text-gold">
+                            O que avalia:
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-gold"></i>
+                                <span class="text-sm text-dark font-medium">Massa Magra e Massa Gorda</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-gold"></i>
+                                <span class="text-sm text-dark font-medium">Água Corporal Total</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-gold"></i>
+                                <span class="text-sm text-dark font-medium">Taxa Metabólica Basal</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Ultrassonografia Corporal -->
+                <div class="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-stone-100">
+                    <div class="aspect-[16/10] overflow-hidden">
+                        <img class="w-full h-full object-cover" loading="lazy"
+                            src="assets/images/ultrassom.png"
+                            alt="Equipamento de ultrassom portátil em ambiente clínico com monitor de alta tecnologia">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-serif text-2xl font-semibold mb-3 text-[#6F6254]">
+                            Ultrassonografia Corporal
+                        </h3>
+                        <p class="text-sm leading-relaxed mb-6 text-gray-600">
+                            Avaliação de composição corporal com precisão clínica. Tecnologia de imagem que permite mensurar com exatidão cada compartimento do corpo para um plano nutricional verdadeiramente individualizado.
+                        </p>
+                        <p class="text-xs uppercase tracking-[2px] font-semibold mb-4 text-gold">
+                            O que avalia:
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-gold"></i>
+                                <span class="text-sm text-dark font-medium">Gordura Visceral</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-gold"></i>
+                                <span class="text-sm text-dark font-medium">Gordura Subcutânea</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-gold"></i>
+                                <span class="text-sm text-dark font-medium">Massa Muscular</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-gold"></i>
+                                <span class="text-sm text-dark font-medium">Circunferências e Dobras</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-gold"></i>
+                                <span class="text-sm text-dark font-medium">Composição Corporal Completa</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Call to Action Banner -->
+            <div class="mt-20 bg-[#6F6254] text-white rounded-lg p-10 text-center shadow-lg">
+                <h3 class="font-serif text-3xl font-semibold mb-4">Pronto para transformar sua saúde com precisão?</h3>
+                <p class="text-white/80 max-w-2xl mx-auto mb-8 text-sm leading-relaxed">
+                    Agende sua consulta e passe por uma avaliação completa com tecnologias avançadas para traçarmos o melhor plano para seus objetivos.
+                </p>
+                <a href="index.html#locais" class="inline-block px-8 py-3.5 bg-gold hover:bg-gold/90 text-dark font-semibold text-sm rounded-sm transition-all shadow-md">
+                    Agendar Avaliação
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="canva-footer w-full bg-white border-t border-[#d2d2d7] pt-5 pb-6">
+        <div class="max-w-[1200px] mx-auto px-8 flex flex-col gap-2.5 text-xs text-[#6E6E73] font-normal leading-relaxed text-left">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
+                <p class="canva-text" style="color: rgb(110, 110, 115); font-weight: 400; font-style: normal; font-size: 12px;">
+                    Copyright © 2026 Lucas Dutra. Todos os direitos reservados.
+                </p>
+            </div>
+            <div class="flex flex-wrap items-center gap-x-2.5 gap-y-1.5 text-[#6E6E73]">
+                <span class="canva-text" style="color: rgb(110, 110, 115); font-weight: 400; font-style: normal; font-size: 12px;">CRN-6 00000</span>
+                <span class="text-[#d2d2d7]">•</span>
+                <a href="index.html" class="hover:text-[#1D1D1F] hover:underline transition-colors">Página Inicial</a>
+                <span class="text-[#d2d2d7]">•</span>
+                <a href="get.html" class="hover:text-[#1D1D1F] hover:underline transition-colors">Calculadora GET</a>
+                <span class="text-[#d2d2d7]">•</span>
+                <a href="index.html#contato" class="hover:text-[#1D1D1F] hover:underline transition-colors">Contato</a>
+            </div>
+            <div class="pt-1.5 text-[#6E6E73]">
+                <p class="canva-text" style="color: rgb(110, 110, 115); font-weight: 400; font-style: normal; font-size: 12px;">Brasil</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        lucide.createIcons();
+
+        // Dropdown Menu
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const menuDropdown = document.getElementById('mobile-menu');
+        if (menuBtn && menuDropdown) {
+            menuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                menuDropdown.classList.toggle('hidden');
+                menuDropdown.classList.toggle('flex');
+            });
+            document.addEventListener('click', (e) => {
+                if (!menuBtn.contains(e.target) && !menuDropdown.contains(e.target)) {
+                    menuDropdown.classList.add('hidden');
+                    menuDropdown.classList.remove('flex');
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon e Ícones do Site -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon.png">
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+    <link rel="apple-touch-icon" href="assets/images/favicon.png">
+    <title>Blog - Dr. Lucas Dutra</title>
+    <meta name="description"
+        content="Artigos e conteúdos científicos sobre Nutrição Clínica Integrativa, Nutrição Materno-Infantil, Programação Metabólica Fetal (DOHaD) e Saúde Intestinal.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        emerald: '#0B5D54',
+                        gold: '#D4AF37',
+                        cream: '#F7F5F2',
+                        light: '#F8F8F8',
+                        dark: '#222222',
+                        muted: '#666666'
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Cormorant Garamond', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+
+    <style>
+        .blog-article-view {
+            display: none;
+        }
+
+        .blog-article-view.active {
+            display: block;
+        }
+
+        .reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: #D4AF37;
+            z-index: 100;
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+    </style>
+</head>
+
+<body class="w-full bg-cream text-dark antialiased">
+
+    <!-- Navigation -->
+    <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white border-b border-stone-100 shadow-sm">
+        <div class="max-w-[1320px] mx-auto px-8 py-5 flex items-center justify-between">
+            <a href="index.html" class="flex-shrink-0">
+                <img class="canva-image h-16 w-auto" loading="lazy" alt="Logo - Dr. Lucas Dutra - Nutricionista Clínico e Materno-Infantil" src="assets/images/logo.png">
+            </a>
+
+            <div class="flex items-center gap-4">
+                <a href="index.html#locais" class="canva-button hidden sm:inline-block px-6 py-2.5 text-sm font-semibold rounded-sm transition-all hover:opacity-90 pulse-cta" style="background: rgb(111, 98, 84); color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 13px;">
+                    Agende sua consulta
+                </a>
+
+                <!-- Container do Menu Hamburguer -->
+                <div class="relative">
+                    <button id="mobile-menu-btn" class="p-2.5 rounded-sm border border-stone-200 hover:bg-stone-50 hover:border-gold transition-all text-dark flex items-center justify-center gap-2 font-medium text-sm" aria-label="Menu">
+                        <i data-lucide="menu" class="w-5 h-5 text-gold"></i>
+                        <span class="hidden md:inline text-xs font-semibold uppercase tracking-wider">Menu</span>
+                    </button>
+
+                    <!-- Dropdown elegante -->
+                    <div id="mobile-menu" class="absolute right-0 top-full mt-3 w-64 bg-white rounded-lg shadow-xl border border-stone-100 py-3 hidden flex-col z-[60] transition-all duration-200">
+                        <a href="index.html" class="px-5 py-2.5 text-sm font-medium text-gray-700 hover:text-gold hover:bg-stone-50 transition-colors flex items-center gap-3">
+                            <i data-lucide="home" class="w-4 h-4 text-gold"></i> Home
+                        </a>
+                        <a href="index.html#sobre" class="px-5 py-2.5 text-sm font-medium text-gray-700 hover:text-gold hover:bg-stone-50 transition-colors flex items-center gap-3">
+                            <i data-lucide="user" class="w-4 h-4 text-gold"></i> Sobre Mim
+                        </a>
+                        <a href="index.html#especialidades" class="px-5 py-2.5 text-sm font-medium text-gray-700 hover:text-gold hover:bg-stone-50 transition-colors flex items-center gap-3">
+                            <i data-lucide="activity" class="w-4 h-4 text-gold"></i> Serviços
+                        </a>
+                        <a href="index.html#metodo" class="px-5 py-2.5 text-sm font-medium text-gray-700 hover:text-gold hover:bg-stone-50 transition-colors flex items-center gap-3">
+                            <i data-lucide="award" class="w-4 h-4 text-gold"></i> Método Dutra
+                        </a>
+                        <a href="metodos-avaliacao.html" class="px-5 py-2.5 text-sm font-medium text-gray-700 hover:text-gold hover:bg-stone-50 transition-colors flex items-center gap-3">
+                            <i data-lucide="clipboard-list" class="w-4 h-4 text-gold"></i> Métodos de Avaliação
+                        </a>
+                        <a href="index.html#locais" class="px-5 py-2.5 text-sm font-medium text-gray-700 hover:text-gold hover:bg-stone-50 transition-colors flex items-center gap-3">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-gold"></i> Locais
+                        </a>
+                        <a href="get.html" class="px-5 py-2.5 text-sm font-medium text-gray-700 hover:text-gold hover:bg-stone-50 transition-colors flex items-center gap-3">
+                            <i data-lucide="calculator" class="w-4 h-4 text-gold"></i> Calculadora GET
+                        </a>
+                        <a href="blog.html" class="px-5 py-2.5 text-sm font-medium text-gold bg-stone-50 flex items-center gap-3 font-semibold">
+                            <i data-lucide="book-open" class="w-4 h-4 text-gold"></i> Blog
+                        </a>
+                        <a href="index.html#contato" class="px-5 py-2.5 text-sm font-medium text-gray-700 hover:text-gold hover:bg-stone-50 transition-colors flex items-center gap-3">
+                            <i data-lucide="mail" class="w-4 h-4 text-gold"></i> Contato
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header da Página -->
+    <header class="pt-36 pb-16 bg-white border-b border-stone-100">
+        <div class="max-w-[1320px] mx-auto px-8 text-center">
+            <p class="text-sm uppercase tracking-[3px] text-gold font-semibold mb-3">Conteúdo Científico</p>
+            <h1 class="font-serif text-4xl lg:text-6xl font-semibold text-[#6F6254] mb-6">Blog Dr. Lucas Dutra</h1>
+            <p class="text-base text-muted max-w-3xl mx-auto leading-relaxed">
+                Artigos científicos, análises e orientações práticas sobre Nutrição Clínica Integrativa, Nutrição Materno-Infantil, Programação Metabólica Fetal (DOHaD) e Saúde Intestinal.
+            </p>
+        </div>
+    </header>
+
+    <!-- Conteúdo do Blog -->
+    <main id="blog" class="py-20">
+        <div class="max-w-[1320px] mx-auto px-8">
+
+            <!-- Grid de Artigos -->
+            <div id="blog-grid" class="grid md:grid-cols-3 gap-8">
+
+                <!-- Artigo 1 -->
+                <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all overflow-hidden border border-stone-100 blog-page-item" data-page="1">
+                    <div class="aspect-[16/10] overflow-hidden">
+                        <img class="w-full h-full object-cover" loading="lazy"
+                            src="https://images.pexels.com/photos/3662667/pexels-photo-3662667.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            alt="Introdução alimentar em bebê">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-xs uppercase tracking-wider text-gold font-medium">Nutrição Materno-Infantil</span>
+                            <span class="text-gray-300">|</span>
+                            <span class="text-xs text-muted">10 min de leitura</span>
+                        </div>
+                        <h3 class="font-semibold text-gray-900 leading-snug mb-3 text-base">
+                            Introdução alimentar: os primeiros passos para construir uma relação saudável com a comida
+                        </h3>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                            A alimentação do bebê começa muito antes da primeira colherada. Entenda como apoiar seu bebê nessa fase de grandes descobertas.
+                        </p>
+                        <button class="blog-read-btn text-sm font-semibold text-gold hover:text-emerald transition-colors" data-article="1">
+                            Ler artigo completo →
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Artigo 2 -->
+                <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all overflow-hidden border border-stone-100 blog-page-item" data-page="1">
+                    <div class="aspect-[16/10] overflow-hidden">
+                        <img class="w-full h-full object-cover" loading="lazy"
+                            src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            alt="Prato saudável anti-inflamatório">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-xs uppercase tracking-wider text-gold font-medium">Nutrição Funcional</span>
+                            <span class="text-gray-300">|</span>
+                            <span class="text-xs text-muted">10 min de leitura</span>
+                        </div>
+                        <h3 class="font-semibold text-gray-900 leading-snug mb-3 text-base">
+                            Inflamação crônica: como a alimentação pode ajudar a equilibrar o organismo
+                        </h3>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                            A inflamação crônica de baixo grau é silenciosa e afeta diretamente a saúde metabólica. Descubra estratégias alimentares para combater o desequilíbrio.
+                        </p>
+                        <button class="blog-read-btn text-sm font-semibold text-gold hover:text-emerald transition-colors" data-article="2">
+                            Ler artigo completo →
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Artigo 3 -->
+                <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all overflow-hidden border border-stone-100 blog-page-item" data-page="1">
+                    <div class="aspect-[16/10] overflow-hidden">
+                        <img class="w-full h-full object-cover" loading="lazy"
+                            src="https://images.pexels.com/photos/5714336/pexels-photo-5714336.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            alt="Emagrecimento saudável e composição corporal">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-xs uppercase tracking-wider text-gold font-medium">Nutrição Clínica</span>
+                            <span class="text-gray-300">|</span>
+                            <span class="text-xs text-muted">10 min de leitura</span>
+                        </div>
+                        <h3 class="font-semibold text-gray-900 leading-snug mb-3 text-base">
+                            Emagrecimento saudável: por que perder peso não deve ser apenas sobre a balança?
+                        </h3>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                            Entenda por que emagrecer de verdade vai muito além do número na balança, envolvendo a saúde global e a composição corporal.
+                        </p>
+                        <button class="blog-read-btn text-sm font-semibold text-gold hover:text-emerald transition-colors" data-article="3">
+                            Ler artigo completo →
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Artigo 4 -->
+                <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all overflow-hidden border border-stone-100 blog-page-item hidden" data-page="2">
+                    <div class="aspect-[16/10] overflow-hidden">
+                        <img class="w-full h-full object-cover" loading="lazy"
+                            src="https://images.pexels.com/photos/6551415/pexels-photo-6551415.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            alt="Escolhas saudáveis de emagrecimento">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-xs uppercase tracking-wider text-gold font-medium">Nutrição Clínica</span>
+                            <span class="text-gray-300">|</span>
+                            <span class="text-xs text-muted">10 min de leitura</span>
+                        </div>
+                        <h3 class="font-semibold text-gray-900 leading-snug mb-3 text-base">
+                            Emagrecimento saudável: por que perder peso não deve ser apenas sobre a balança? (Parte II)
+                        </h3>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                            Entenda por que perder peso de verdade vai muito além da balança, priorizando a saúde metabólica e a massa muscular.
+                        </p>
+                        <button class="blog-read-btn text-sm font-semibold text-gold hover:text-emerald transition-colors" data-article="4">
+                            Ler artigo completo →
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Artigo 5 -->
+                <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all overflow-hidden border border-stone-100 blog-page-item hidden" data-page="2">
+                    <div class="aspect-[16/10] overflow-hidden">
+                        <img class="w-full h-full object-cover" loading="lazy"
+                            src="https://images.pexels.com/photos/30637886/pexels-photo-30637886.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            alt="Alimentos para microbioma e microbiota intestinal">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-xs uppercase tracking-wider text-gold font-medium">Saúde Intestinal</span>
+                            <span class="text-gray-300">|</span>
+                            <span class="text-xs text-muted">10 min de leitura</span>
+                        </div>
+                        <h3 class="font-semibold text-gray-900 leading-snug mb-3 text-base">
+                            Saúde intestinal: como a microbiota influencia o metabolismo, a imunidade e o bem-estar
+                        </h3>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                            Descubra como trilhões de microrganismos influenciam sua imunidade, inflamação corporal e equilíbrio metabólico geral.
+                        </p>
+                        <button class="blog-read-btn text-sm font-semibold text-gold hover:text-emerald transition-colors" data-article="5">
+                            Ler artigo completo →
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Artigo 6 -->
+                <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all overflow-hidden border border-stone-100 blog-page-item hidden" data-page="2">
+                    <div class="aspect-[16/10] overflow-hidden">
+                        <img class="w-full h-full object-cover" loading="lazy"
+                            src="https://images.pexels.com/photos/7485093/pexels-photo-7485093.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            alt="Gestante preparando refeição saudável">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-xs uppercase tracking-wider text-gold font-medium">DOHaD / Gestantes</span>
+                            <span class="text-gray-300">|</span>
+                            <span class="text-xs text-muted">10 min de leitura</span>
+                        </div>
+                        <h3 class="font-semibold text-gray-900 leading-snug mb-3 text-base">
+                            Diabetes gestacional: como a alimentação pode proteger a mãe e o bebê
+                        </h3>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                            Entenda como regular os níveis de glicemia e garantir o desenvolvimento fetal equilibrado durante a gravidez.
+                        </p>
+                        <button class="blog-read-btn text-sm font-semibold text-gold hover:text-emerald transition-colors" data-article="6">
+                            Ler artigo completo →
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Artigo 7 -->
+                <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all overflow-hidden border border-stone-100 blog-page-item hidden" data-page="3">
+                    <div class="aspect-[16/10] overflow-hidden">
+                        <img class="w-full h-full object-cover" loading="lazy"
+                            src="https://images.pexels.com/photos/7484672/pexels-photo-7484672.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            alt="Gestante e programação metabólica">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-xs uppercase tracking-wider text-gold font-medium">Programação Fetal (DOHaD)</span>
+                            <span class="text-gray-300">|</span>
+                            <span class="text-xs text-muted">12 min de leitura</span>
+                        </div>
+                        <h3 class="font-semibold text-gray-900 leading-snug mb-3 text-base">
+                            A alimentação na gestação pode programar a saúde do bebê para toda a vida?
+                        </h3>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                            Entenda o conceito revolucionário de Programação Metabólica Fetal (DOHaD) e como ele influencia a saúde do bebê.
+                        </p>
+                        <button class="blog-read-btn text-sm font-semibold text-gold hover:text-emerald transition-colors" data-article="7">
+                            Ler artigo completo →
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Artigo 8 -->
+                <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all overflow-hidden border border-stone-100 blog-page-item hidden" data-page="3">
+                    <div class="aspect-[16/10] overflow-hidden">
+                        <img class="w-full h-full object-cover" loading="lazy"
+                            src="https://images.pexels.com/photos/6991894/pexels-photo-6991894.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            alt="Nutrição materna e paladar fetal">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-xs uppercase tracking-wider text-gold font-medium">Revisão Científica</span>
+                            <span class="text-gray-300">|</span>
+                            <span class="text-xs text-muted">12 min de leitura</span>
+                        </div>
+                        <h3 class="font-semibold text-gray-900 leading-snug mb-3 text-base">
+                            A influência da alimentação materna na formação do paladar fetal e aceitação pós-natal
+                        </h3>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                            Entenda como os sabores da alimentação gestacional moldam as primeiras experiências sensoriais e preferências do bebê.
+                        </p>
+                        <button class="blog-read-btn text-sm font-semibold text-gold hover:text-emerald transition-colors" data-article="8">
+                            Ler artigo completo →
+                        </button>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- Paginação -->
+            <div class="flex justify-center gap-2 mt-12">
+                <button class="blog-page-btn px-4 py-2 rounded-sm border border-gold bg-gold text-white font-semibold text-sm transition-all" data-page="1">1</button>
+                <button class="blog-page-btn px-4 py-2 rounded-sm border border-gold text-gold font-semibold text-sm transition-all hover:bg-gold hover:text-white" data-page="2">2</button>
+                <button class="blog-page-btn px-4 py-2 rounded-sm border border-gold text-gold font-semibold text-sm transition-all hover:bg-gold hover:text-white" data-page="3">3</button>
+            </div>
+
+            <!-- Leitor do Artigo Completo -->
+            <div id="article-detail" class="blog-article-view mt-12">
+                <div class="reading-progress" id="reading-progress"></div>
+                <div class="max-w-3xl mx-auto bg-white p-8 sm:p-12 rounded-lg shadow-md border border-stone-100">
+                    <button id="article-back" class="flex items-center gap-2 text-sm font-semibold text-gold hover:text-emerald mb-8 transition-colors">
+                        <i data-lucide="arrow-left" class="w-4 h-4"></i> Voltar ao Blog
+                    </button>
+                    <div id="article-content" class="prose max-w-none text-gray-700"></div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="canva-footer w-full bg-white border-t border-[#d2d2d7] pt-5 pb-6">
+        <div class="max-w-[1200px] mx-auto px-8 flex flex-col gap-2.5 text-xs text-[#6E6E73] font-normal leading-relaxed text-left">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
+                <p class="canva-text" style="color: rgb(110, 110, 115); font-weight: 400; font-style: normal; font-size: 12px;">
+                    Copyright © 2026 Lucas Dutra. Todos os direitos reservados.
+                </p>
+            </div>
+            <div class="flex flex-wrap items-center gap-x-2.5 gap-y-1.5 text-[#6E6E73]">
+                <span class="canva-text" style="color: rgb(110, 110, 115); font-weight: 400; font-style: normal; font-size: 12px;">CRN-6 00000</span>
+                <span class="text-[#d2d2d7]">•</span>
+                <a href="index.html" class="hover:text-[#1D1D1F] hover:underline transition-colors">Página Inicial</a>
+                <span class="text-[#d2d2d7]">•</span>
+                <a href="metodos-avaliacao.html" class="hover:text-[#1D1D1F] hover:underline transition-colors">Métodos de Avaliação</a>
+                <span class="text-[#d2d2d7]">•</span>
+                <a href="get.html" class="hover:text-[#1D1D1F] hover:underline transition-colors">Calculadora GET</a>
+                <span class="text-[#d2d2d7]">•</span>
+                <a href="index.html#contato" class="hover:text-[#1D1D1F] hover:underline transition-colors">Contato</a>
+            </div>
+            <div class="pt-1.5 text-[#6E6E73]">
+                <p class="canva-text" style="color: rgb(110, 110, 115); font-weight: 400; font-style: normal; font-size: 12px;">Brasil</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        lucide.createIcons();
+
+        // Dropdown Menu
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const menuDropdown = document.getElementById('mobile-menu');
+        if (menuBtn && menuDropdown) {
+            menuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                menuDropdown.classList.toggle('hidden');
+                menuDropdown.classList.toggle('flex');
+            });
+            document.addEventListener('click', (e) => {
+                if (!menuBtn.contains(e.target) && !menuDropdown.contains(e.target)) {
+                    menuDropdown.classList.add('hidden');
+                    menuDropdown.classList.remove('flex');
+                }
+            });
+        }
+
+        // Base de Dados dos Artigos
+        const articles = {
+            1: {
+                title: 'Introdução alimentar: os primeiros passos para construir uma relação saudável com a comida',
+                category: 'Nutrição Materno-Infantil',
+                date: '21 Jul 2026',
+                readTime: '10 min',
+                content: `
+        <p class="text-lg leading-relaxed mb-6"><strong>A alimentação do bebê começa muito antes da primeira colherada</strong></p>
+        <p class="leading-relaxed mb-6">Quando pensamos em introdução alimentar, muitas pessoas imaginam apenas o momento em que o bebê começa a experimentar papinhas, frutas ou novos alimentos. Entretanto, esse processo representa muito mais do que oferecer comida.</p>
+        <p class="leading-relaxed mb-6">A introdução alimentar é uma fase de descobertas, aprendizado e construção de hábitos que podem acompanhar a criança por toda a vida.</p>
+        <p class="leading-relaxed mb-6">É nesse período que o bebê começa a desenvolver sua relação com os alimentos, conhecendo diferentes sabores, texturas, aromas e formas de se alimentar.</p>
+        <p class="leading-relaxed mb-6">Por isso, a introdução alimentar deve ser vista como uma etapa fundamental dentro dos primeiros 1.000 dias de vida — período que compreende a gestação até aproximadamente os dois anos de idade e que representa uma janela de grande oportunidade para promover saúde e prevenir doenças futuras.</p>
+        <p class="leading-relaxed mb-6">Uma alimentação adequada nessa fase contribui para:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-2 leading-relaxed">
+          <li>Crescimento e desenvolvimento adequado;</li>
+          <li>Formação do paladar;</li>
+          <li>Autonomia alimentar;</li>
+          <li>Melhor aceitação de diferentes alimentos;</li>
+          <li>Desenvolvimento motor;</li>
+          <li>Prevenção de deficiências nutricionais.</li>
+        </ul>
+        <p class="leading-relaxed mb-6">Mais do que ensinar uma criança a comer, estamos ajudando a construir uma relação positiva com a alimentação.</p>
+
+        <h3 class="font-serif text-2xl font-semibold text-emerald mb-4 mt-8">O que é a introdução alimentar?</h3>
+        <p class="leading-relaxed mb-6">O que chamamos de introdução alimentar é o período em que novos alimentos começam a ser oferecidos ao bebê, complementando a alimentação que anteriormente era baseada exclusivamente no leite materno ou fórmula infantil.</p>
+        <p class="leading-relaxed mb-6">Segundo recomendações da Organização Mundial da Saúde (OMS), a alimentação complementar deve ser iniciada por volta dos 6 meses de vida, quando o bebê apresenta maturidade fisiológica e neurológica para receber outros alimentos.</p>
+
+        <h3 class="font-serif text-2xl font-semibold text-emerald mb-4 mt-8">Alimentos que devem fazer parte da introdução alimentar</h3>
+        <ul class="list-disc pl-6 mb-6 space-y-2 leading-relaxed">
+          <li><strong>Frutas:</strong> Fontes de vitaminas, minerais, fibras e compostos bioativos.</li>
+          <li><strong>Verduras e legumes:</strong> Contribuem para o fornecimento de fibras e micronutrientes.</li>
+          <li><strong>Feijões e leguminosas:</strong> Importantes fontes de proteínas vegetais, ferro e fibras.</li>
+          <li><strong>Carnes, ovos e peixes:</strong> Fornecem proteínas de alta qualidade, ferro e zinco.</li>
+          <li><strong>Cereais e tubérculos:</strong> Como arroz, batata, mandioca e aveia.</li>
+        </ul>
+        <div class="mt-12 p-8 bg-emerald/5 rounded-sm border-l-4 border-emerald">
+          <h4 class="font-serif text-xl font-semibold text-emerald mb-2">Agende uma avaliação nutricional</h4>
+          <p class="text-sm leading-relaxed mb-4">Acompanhe a introdução alimentar do seu bebê de maneira segura, individualizada e tranquila com apoio profissional.</p>
+          <a href="index.html#locais" class="inline-block px-6 py-2.5 bg-emerald text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:opacity-90 transition-all pulse-cta">Agende sua consulta</a>
+        </div>
+      `
+            },
+            2: {
+                title: 'Inflamação crônica: como a alimentação pode ajudar a equilibrar o organismo',
+                category: 'Nutrição Clínica Integrativa e Funcional',
+                date: '15 Jun 2026',
+                readTime: '10 min',
+                content: `
+        <p class="text-lg leading-relaxed mb-6"><strong>Inflamação: um processo natural que pode se tornar um problema quando permanece ativo</strong></p>
+        <p class="leading-relaxed mb-6">A inflamação faz parte de um mecanismo essencial de defesa do organismo. Quando ocorre uma inflamação aguda, o organismo ativa mecanismos para combater o problema. Porém, quando esse processo permanece ativo por longos períodos sem ameaça aparente, temos a inflamação crônica de baixo grau.</p>
+        <p class="leading-relaxed mb-6">Esse tipo de inflamação é silencioso e pode estar associado ao desenvolvimento de resistência à insulina, obesidade, problemas cardiovasculares e síndromes metabólicas.</p>
+
+        <h3 class="font-serif text-2xl font-semibold text-emerald mb-4 mt-8">Alimentos anti-inflamatórios</h3>
+        <ul class="list-disc pl-6 mb-6 space-y-3 leading-relaxed">
+          <li><strong>Frutas e vegetais coloridos:</strong> Frutas vermelhas, vegetais verdes e citros.</li>
+          <li><strong>Ômega-3:</strong> Encontrado em peixes como sardinha e salmão, sementes de linhaça e chia.</li>
+          <li><strong>Fibras alimentares:</strong> Essenciais para a microbiota e barreira intestinal.</li>
+          <li><strong>Azeite de oliva extravirgem:</strong> Rico em compostos fenólicos.</li>
+        </ul>
+        <div class="mt-12 p-8 bg-emerald/5 rounded-sm border-l-4 border-emerald">
+          <h4 class="font-serif text-xl font-semibold text-emerald mb-2">Agende sua avaliação nutricional</h4>
+          <p class="text-sm leading-relaxed mb-4">O acompanhamento nutricional individualizado permite identificar estratégias alimentares adequadas para seus objetivos.</p>
+          <a href="index.html#locais" class="inline-block px-6 py-2.5 bg-emerald text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:opacity-90 transition-all pulse-cta">Agende sua consulta</a>
+        </div>
+      `
+            },
+            3: {
+                title: 'Emagrecimento saudável: por que perder peso não deve ser apenas sobre a balança?',
+                category: 'Nutrição Clínica',
+                date: '10 Jun 2026',
+                readTime: '10 min',
+                content: `
+        <p class="text-lg leading-relaxed mb-6"><strong>Emagrecer não é apenas perder peso: é transformar a relação com a alimentação</strong></p>
+        <p class="leading-relaxed mb-6">O verdadeiro objetivo de um acompanhamento nutricional não deve ser apenas diminuir o peso corporal, mas promover mudanças capazes de melhorar a composição corporal, preservando a massa muscular e reduzindo a gordura visceral.</p>
+        <h3 class="font-serif text-2xl font-semibold text-emerald mb-4 mt-8">A importância da proteína e do intestino</h3>
+        <p class="leading-relaxed mb-6">A proteína mantém a massa muscular e promove saciedade. Paralelamente, cuidar do intestino garante que os nutrientes sejam devidamente absorvidos e o metabolismo funcione de forma plena.</p>
+        <div class="mt-12 p-8 bg-emerald/5 rounded-sm border-l-4 border-emerald">
+          <h4 class="font-serif text-xl font-semibold text-emerald mb-2">Agende sua avaliação nutricional</h4>
+          <p class="text-sm leading-relaxed mb-4">O acompanhamento nutricional individualizado permite desenvolver estratégias personalizadas para seu objetivo.</p>
+          <a href="index.html#locais" class="inline-block px-6 py-2.5 bg-emerald text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:opacity-90 transition-all pulse-cta">Agende sua consulta</a>
+        </div>
+      `
+            },
+            4: {
+                title: 'Emagrecimento saudável: por que perder peso não deve ser apenas sobre a balança?',
+                category: 'Nutrição Clínica',
+                date: '10 Jun 2026',
+                readTime: '10 min',
+                content: `
+        <p class="text-lg leading-relaxed mb-6"><strong>O emagrecimento vai muito além do número na balança</strong></p>
+        <p class="leading-relaxed mb-6">É fundamental diferenciar perda de peso na balança de redução de gordura corporal. Reduzir gordura preservando músculos é a verdadeira chave para a saúde metabólica e longevidade.</p>
+        <div class="mt-12 p-8 bg-emerald/5 rounded-sm border-l-4 border-emerald">
+          <h4 class="font-serif text-xl font-semibold text-emerald mb-2">Agende sua avaliação nutricional</h4>
+          <p class="text-sm leading-relaxed mb-4">Saiba como conquistar resultados duradouros e uma rotina alimentar adaptada à sua vida.</p>
+          <a href="index.html#locais" class="inline-block px-6 py-2.5 bg-emerald text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:opacity-90 transition-all pulse-cta">Agende sua consulta</a>
+        </div>
+      `
+            },
+            5: {
+                title: 'Saúde intestinal: como a microbiota influencia o metabolismo, a imunidade e o bem-estar',
+                category: 'Nutrição Integrativa e Funcional',
+                date: '15 Jun 2026',
+                readTime: '10 min',
+                content: `
+        <p class="text-lg leading-relaxed mb-6"><strong>O intestino é o segundo cérebro do nosso corpo</strong></p>
+        <p class="leading-relaxed mb-6">Trilhões de bactérias vivem na microbiota intestinal e participam da produção de neurotransmissores, imunidade e absorção nutricional. O consumo regular de fibras solúveis e vegetais variados cultiva uma microbiota forte.</p>
+        <div class="mt-12 p-8 bg-emerald/5 rounded-sm border-l-4 border-emerald">
+          <h4 class="font-serif text-xl font-semibold text-emerald mb-2">Agende sua avaliação nutricional</h4>
+          <p class="text-sm leading-relaxed mb-4">Cuide do seu intestino e restabeleça o equilíbrio metabólico global do seu corpo.</p>
+          <a href="index.html#locais" class="inline-block px-6 py-2.5 bg-emerald text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:opacity-90 transition-all pulse-cta">Agende sua consulta</a>
+        </div>
+      `
+            },
+            6: {
+                title: 'Diabetes gestacional: como a alimentação pode proteger a mãe e o bebê',
+                category: 'Nutrição Materno-Infantil / DOHaD',
+                date: '05 Jun 2026',
+                readTime: '10 min',
+                content: `
+        <p class="text-lg leading-relaxed mb-6"><strong>Equilíbrio glicêmico e proteção no desenvolvimento fetal</strong></p>
+        <p class="leading-relaxed mb-6">O diabetes gestacional exige controle rigoroso sem restrições severas. A combinação de carboidratos complexos com fibras e proteínas garante energia estável ao bebê e proteção metabólica materna.</p>
+        <div class="mt-12 p-8 bg-emerald/5 rounded-sm border-l-4 border-emerald">
+          <h4 class="font-serif text-xl font-semibold text-emerald mb-2">Agende sua avaliação nutricional</h4>
+          <p class="text-sm leading-relaxed mb-4">Acompanhamento nutricional especializado para uma gestação tranquila e saudável.</p>
+          <a href="index.html#locais" class="inline-block px-6 py-2.5 bg-emerald text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:opacity-90 transition-all pulse-cta">Agende sua consulta</a>
+        </div>
+      `
+            },
+            7: {
+                title: 'A alimentação na gestação pode programar a saúde do bebê para toda a vida?',
+                category: 'Programação Metabólica Fetal (DOHaD)',
+                date: '21 Jul 2026',
+                readTime: '12 min',
+                content: `
+        <p class="text-lg leading-relaxed mb-6"><strong>Programação Metabólica Fetal (DOHaD) e os Primeiros 1.000 Dias</strong></p>
+        <p class="leading-relaxed mb-6">O ambiente intrauterino envia sinais constantes aos genes do bebê. Nutrientes adequados como ácido fólico, ferro, colina, iodo e ômega-3 atuam prevenindo doenças metabólicas futuras.</p>
+        <div class="mt-12 p-8 bg-emerald/5 rounded-sm border-l-4 border-emerald">
+          <h4 class="font-serif text-xl font-semibold text-emerald mb-2">Agende uma avaliação nutricional</h4>
+          <p class="text-sm leading-relaxed mb-4">Invista na saúde do seu bebê desde o primeiro momento da vida.</p>
+          <a href="index.html#locais" class="inline-block px-6 py-2.5 bg-emerald text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:opacity-90 transition-all pulse-cta">Agende sua consulta</a>
+        </div>
+      `
+            },
+            8: {
+                title: 'A influência da alimentação materna na formação do paladar fetal e aceitação pós-natal',
+                category: 'Nutrição Materno-Infantil | DOHaD',
+                date: '21 Jul 2026',
+                readTime: '12 min',
+                content: `
+        <p class="text-lg leading-relaxed mb-6"><strong>A formação do paladar através do líquido amniótico</strong></p>
+        <p class="leading-relaxed mb-6">Sabores da dieta materna passam para o líquido amniótico e familiarizam o bebê com alimentos saudáveis antes do nascimento, facilitando a aceitação na introdução alimentar.</p>
+        <div class="mt-12 p-8 bg-emerald/5 rounded-sm border-l-4 border-emerald">
+          <h4 class="font-serif text-xl font-semibold text-emerald mb-2">Agende sua avaliação profissional</h4>
+          <p class="text-sm leading-relaxed mb-4">Construa estratégias nutricionais personalizadas para promover saúde e boa relação com a comida.</p>
+          <a href="index.html#locais" class="inline-block px-6 py-2.5 bg-emerald text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:opacity-90 transition-all pulse-cta">Agende sua consulta</a>
+        </div>
+      `
+            }
+        };
+
+        // Lógica de Paginação
+        let currentBlogPage = 1;
+        function showBlogPage(page) {
+            document.querySelectorAll('.blog-page-item').forEach(item => {
+                if (parseInt(item.dataset.page) === page) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+            document.querySelectorAll('.blog-page-btn').forEach(btn => {
+                if (parseInt(btn.dataset.page) === page) {
+                    btn.classList.add('bg-gold', 'text-white');
+                    btn.classList.remove('text-gold');
+                } else {
+                    btn.classList.remove('bg-gold', 'text-white');
+                    btn.classList.add('text-gold');
+                }
+            });
+            currentBlogPage = page;
+        }
+
+        document.querySelectorAll('.blog-page-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                showBlogPage(parseInt(btn.dataset.page));
+                document.getElementById('blog').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Leitor do Artigo
+        document.querySelectorAll('.blog-read-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const a = articles[btn.dataset.article];
+                const detail = document.getElementById('article-detail');
+                document.getElementById('article-content').innerHTML = `
+                    <p class="text-xs font-semibold uppercase tracking-wider text-gold mb-2">${a.category} | ${a.date} | ${a.readTime}</p>
+                    <h1 class="font-serif text-3xl sm:text-4xl font-semibold text-[#6F6254] mb-8 leading-tight">${a.title}</h1>
+                    ${a.content}
+                `;
+                document.getElementById('blog-grid').style.display = 'none';
+                detail.classList.add('active');
+                document.getElementById('blog').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        document.getElementById('article-back').addEventListener('click', () => {
+            document.getElementById('article-detail').classList.remove('active');
+            document.getElementById('blog-grid').style.display = '';
+            document.getElementById('blog').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        window.addEventListener('scroll', () => {
+            const d = document.getElementById('article-detail');
+            if (d && d.classList.contains('active')) {
+                const r = d.getBoundingClientRect();
+                document.getElementById('reading-progress').style.width = Math.min(100, Math.max(0, (-r.top / (r.height - window.innerHeight)) * 100)) + '%';
+            } else {
+                const bar = document.getElementById('reading-progress');
+                if (bar) bar.style.width = '0%';
+            }
+        });
+    </script>
+</body>
+
+</html>
